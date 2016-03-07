@@ -23,7 +23,7 @@ final class Component extends AbstractComponent
     protected function __construct(string $implementation, FolderStructureConvention $folderStructure)
     {
         $this->folderStructure = $folderStructure;
-        $this->setImplementation($implementation);
+        parent::__construct($implementation);
     }
 
     /**
