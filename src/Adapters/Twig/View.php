@@ -3,8 +3,8 @@
 namespace Mosaic\View\Adapters\Twig;
 
 use ArrayAccess;
-use Mosaic\View\View as ViewContract;
 use Mosaic\View\Adapters\View as AbstractView;
+use Mosaic\View\View as ViewContract;
 use Twig_TemplateInterface;
 
 class View extends AbstractView implements ViewContract, ArrayAccess

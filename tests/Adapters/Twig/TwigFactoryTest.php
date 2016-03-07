@@ -2,7 +2,6 @@
 
 namespace Mosaic\View\Tests\Adapters\Twig;
 
-use Mosaic\Tests\ClosesMockeryOnTearDown;
 use Mosaic\View\Adapters\Twig\Factory;
 use Mosaic\View\View;
 use PHPUnit_Framework_TestCase;

@@ -2,28 +2,27 @@
 
 namespace Mosaic\View\Definitions;
 
-use Illuminate\Contracts\Container\Container;
 use Interop\Container\Definition\DefinitionProviderInterface;
-use Mosaic\Contracts\Application;
-use Mosaic\Contracts\View\Factory as FactoryContract;
+use Mosaic\Common\Conventions\FolderStructureConvention;
 use Mosaic\View\Adapters\Twig\Factory as TwigFactory;
+use Mosaic\View\Factory;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
 class TwigDefinition implements DefinitionProviderInterface
 {
     /**
-     * @var Application
+     * @var FolderStructureConvention
      */
-    private $app;
+    private $folderStructure;
 
     /**
      * TwigDefinition constructor.
-     * @param Application $app
+     * @param FolderStructureConvention $folderStructure
      */
-    public function __construct(Application $app)
+    public function __construct(FolderStructureConvention $folderStructure)
     {
-        $this->app = $app;
+        $this->folderStructure = $folderStructure;
     }
 
     /**
@@ -41,11 +40,11 @@ class TwigDefinition implements DefinitionProviderInterface
     public function getDefinitions()
     {
         return [
-            FactoryContract::class => function () {
+            Factory::class => function () {
                 return new TwigFactory(
                     new Twig_Environment(
-                        new Twig_Loader_Filesystem($this->app->viewsPath()), [
-                            'cache' => $this->app->storagePath('views')
+                        new Twig_Loader_Filesystem($this->folderStructure->viewPaths()), [
+                            'cache' => $this->folderStructure->viewCachePath()
                         ]
                     )
                 );
