@@ -7,7 +7,7 @@ use Mosaic\Common\Conventions\FolderStructureConvention;
 use Mosaic\View\Definitions\TwigDefinition;
 
 /**
- * @method static $this twig($folderStructure)
+ * @method static $this twig(FolderStructureConvention $folderStructure)
  */
 final class Component extends AbstractComponent
 {
