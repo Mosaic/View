@@ -4,14 +4,14 @@ namespace Mosaic\View\Tests\Definitions;
 
 use Interop\Container\Definition\DefinitionProviderInterface;
 use Mosaic\Application;
-use Mosaic\View\Definitions\TwigDefinition;
+use Mosaic\View\Providers\TwigProvider;
 use Mosaic\View\Factory;
 
 class TwigDefinitionTest extends \PHPUnit_Framework_TestCase
 {
     public function getDefinition() : DefinitionProviderInterface
     {
-        return new TwigDefinition(new Application(__DIR__));
+        return new TwigProvider(new Application(__DIR__));
     }
 
     public function shouldDefine() : array

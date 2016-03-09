@@ -1,6 +1,6 @@
 <?php
 
-namespace Mosaic\View\Definitions;
+namespace Mosaic\View\Providers;
 
 use Interop\Container\Definition\DefinitionProviderInterface;
 use Mosaic\Common\Conventions\FolderStructureConvention;
@@ -9,7 +9,7 @@ use Mosaic\View\Factory;
 use Twig_Environment;
 use Twig_Loader_Filesystem;
 
-class TwigDefinition implements DefinitionProviderInterface
+class TwigProvider implements DefinitionProviderInterface
 {
     /**
      * @var FolderStructureConvention

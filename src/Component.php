@@ -4,7 +4,7 @@ namespace Mosaic\View;
 
 use Mosaic\Common\Components\AbstractComponent;
 use Mosaic\Common\Conventions\FolderStructureConvention;
-use Mosaic\View\Definitions\TwigDefinition;
+use Mosaic\View\Providers\TwigProvider;
 
 /**
  * @method static $this twig(FolderStructureConvention $folderStructure)
@@ -32,7 +32,7 @@ final class Component extends AbstractComponent
     public function resolveTwig() : array
     {
         return [
-            new TwigDefinition($this->folderStructure)
+            new TwigProvider($this->folderStructure)
         ];
     }
 
